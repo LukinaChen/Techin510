@@ -1,0 +1,10 @@
+[theme]
+# Soft indigo accent — buttons, links, focus rings
+primaryColor = "#6366f1"
+# Main canvas
+backgroundColor = "#ffffff"
+# Sidebar, secondary surfaces, dataframe chrome
+secondaryBackgroundColor = "#f8f9fa"
+# Body and headings
+textColor = "#1a1a2e"
+font = "sans serif"

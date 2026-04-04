@@ -1,0 +1,50 @@
+[
+  {
+    "Team Number": "3",
+    "CFO Name": "csy",
+    "Provider / Supplier": "amazon",
+    "Quantity": 1,
+    "Name of Item": "esp32c3",
+    "Price in USD": 20.0,
+    "Link to Purchase": "xxx",
+    "Notes": "",
+    "Instructor Approval Status": "Pending",
+    "Rejection Note": ""
+  },
+  {
+    "Team Number": "3",
+    "CFO Name": "1",
+    "Provider / Supplier": "11",
+    "Quantity": 1,
+    "Name of Item": "1",
+    "Price in USD": 1.0,
+    "Link to Purchase": "1",
+    "Notes": "1",
+    "Instructor Approval Status": "Pending",
+    "Rejection Note": ""
+  },
+  {
+    "Team Number": "3",
+    "CFO Name": "fq",
+    "Provider / Supplier": "a",
+    "Quantity": 1,
+    "Name of Item": "sd",
+    "Price in USD": 1.0,
+    "Link to Purchase": "d",
+    "Notes": "",
+    "Instructor Approval Status": "Rejected",
+    "Rejection Note": ""
+  },
+  {
+    "Team Number": "",
+    "CFO Name": "",
+    "Provider / Supplier": "",
+    "Quantity": 1,
+    "Name of Item": "a",
+    "Price in USD": 0.0,
+    "Link to Purchase": "a",
+    "Notes": "",
+    "Instructor Approval Status": "Pending",
+    "Rejection Note": ""
+  }
+]
