@@ -50,7 +50,7 @@ search" appears correctly.
 ---
 
 ## Part 3: Assert Statement
-Located in F-wayfinder.py at the top of the file:
+Located in E-wayfinder.py at the top of the file:
 ```python
 assert all(
     REQUIRED_FIELDS.issubset(r.keys()) for r in RESOURCES

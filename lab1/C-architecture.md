@@ -1,3 +1,4 @@
+## Component C: System Architecture & Design 
 ```
 +----------------------+    +----------------------+    +----------------------+
 |        INPUT         | -> |       PROCESS        | -> |       OUTPUT         |

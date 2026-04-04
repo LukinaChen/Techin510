@@ -1,0 +1,419 @@
+<html><head><meta charset="utf-8"><style>
+body{font-family:sans-serif;max-width:900px;margin:auto;padding:2em}
+table{border-collapse:collapse;width:100%}
+th,td{border:1px solid #ddd;padding:8px}
+pre{background:#f4f4f4;padding:1em;overflow-x:auto}
+</style></head><body><h1>Component A: Interview Notes</h1>
+<h2>Interviewee</h2>
+<p><strong>Dorothy</strong>, Program Coordinator, Student Purchasing, GIX</p>
+<hr />
+<h2>Interview Notes</h2>
+<h3>Current Workflow</h3>
+<ul>
+<li>Manages intake of data and student purchasing for all Launch Projects</li>
+<li>Handles every single item purchased — from Amazon to non-Amazon purchases</li>
+<li>Tracks all purchases using Excel spreadsheets</li>
+<li>Receives anywhere from 20 to 150 orders per month (varies by project and cohort)</li>
+<li>Every order requires instructor approval before purchasing</li>
+<li>Budget is also a variable that affects each order</li>
+<li>Approval process takes 3 days to 2 weeks</li>
+</ul>
+<h3>Direct Quotes</h3>
+<ul>
+<li><em>"I'm not sure if there is an easier way for students to submit their orders, for me to review and run an approval process."</em></li>
+<li><em>"I need all the information at once."</em></li>
+<li><em>"I can get any of 20 to 150 orders per month."</em></li>
+</ul>
+<h3>Surprises</h3>
+<ul>
+<li>The volume of orders varies dramatically (20–150/month), meaning Dorothy's 
+  workload is highly unpredictable. During peak periods, manual tracking 
+  becomes extremely difficult.</li>
+</ul>
+<h3>Current Workarounds</h3>
+<ul>
+<li>Uses Excel spreadsheets to manually track all orders</li>
+<li>Current fields tracked: Team #, CFO, Provider/Supplier, Quantity, 
+  Name of Item, Price, Link to Purchase, Notes, Approval Status from Instructor</li>
+</ul>
+<h3>What Success Looks Like (in Dorothy's words)</h3>
+<ul>
+<li>Students can easily submit orders with all required information at once</li>
+<li>Dorothy can quickly review and see who submitted what, what they want, 
+  and which class it's from</li>
+<li>Approval process is streamlined and trackable</li>
+</ul>
+<hr />
+<h2>User Journey Map</h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Action</th>
+<th>Time Required</th>
+<th>Where Info Lives</th>
+<th>What Could Go Wrong</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Student decides they need to purchase an item</td>
+<td>Instant</td>
+<td>Student's memory</td>
+<td>Student doesn't know what information to include</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Student submits purchase request</td>
+<td>A few minutes</td>
+<td>Email / manual form</td>
+<td>Incomplete info — Dorothy has to follow up repeatedly</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Dorothy receives request and logs it into Excel</td>
+<td>A few minutes per entry</td>
+<td>Excel spreadsheet</td>
+<td>Manual entry errors, inconsistent formatting</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Dorothy sends to instructor for approval</td>
+<td>3 days – 2 weeks</td>
+<td>Email</td>
+<td>Slow turnaround, Dorothy has no visibility on status</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Dorothy receives approval, updates Excel</td>
+<td>A few minutes</td>
+<td>Excel spreadsheet</td>
+<td>Easy to miss updates, status not transparent to students</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Dorothy processes the purchase (places order)</td>
+<td>Varies</td>
+<td>Various platforms</td>
+<td>Order backlog during peak periods (up to 150/month)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Required Data Fields (from whiteboard)</h2>
+<ul>
+<li>Team #</li>
+<li>CFO</li>
+<li>Provider / Supplier</li>
+<li>Quantity</li>
+<li>Name of Item</li>
+<li>Price</li>
+<li>Link to Purchase</li>
+<li>Notes</li>
+<li>Approval Status from Instructor</li>
+</ul>
+<hr />
+<h2>Problem Statement</h2>
+<p>"When <strong>GIX students and Dorothy (Program Coordinator)</strong> need to 
+<strong>submit and track purchase requests for Launch Projects</strong>, they currently 
+<strong>exchange information manually and maintain a separate Excel spreadsheet</strong>, 
+which causes <strong>incomplete submissions, slow approval cycles of 3 days to 
+2 weeks, and a heavy manual workload for Dorothy especially during peak 
+periods of up to 150 orders per month.</strong>"</p>
+<h1>Component B: Lab</h1>
+<h2>Warm-up: Tool Awareness Comparison</h2>
+<p><strong>App idea:</strong> A simple purchase request form for GIX students 
+with fields for item name, price, and supplier.</p>
+<p><strong>Plain English description:</strong>
+"Build a simple Streamlit app for GIX students to submit 
+purchase requests with fields for item name, price, and supplier."</p>
+<p><strong>Claude (chatbot) result:</strong>
+Claude generated code as a text block in the chat window. 
+I would need to manually create a new file, copy-paste the code, 
+and save it myself. The code worked but required extra steps 
+to actually use it.</p>
+<p><strong>Cursor result:</strong>
+Cursor directly created app.py in my project folder, wrote 
+the code into the file, and even ran a verification command. 
+No copy-pasting needed — the file was ready to run immediately.</p>
+<p><strong>Comparison:</strong>
+Cursor feels more "buildable" because it acts directly on 
+the project files. A chatbot gives you code as text, which 
+is useful for understanding but requires manual steps to deploy. 
+Cursor skips those steps and behaves more like a coding assistant 
+than a text generator.</p>
+<hr />
+<h2>Interaction 1 — Build the base app</h2>
+<p><strong>Prompt:</strong> Build a Streamlit app called "GIX Student Purchase 
+Request System" that helps GIX students submit purchase requests 
+and allows Dorothy (Program Coordinator) to track them. The app 
+should have two pages: Submit Request (a form with all required 
+fields) and View All Requests (a table showing all submissions).</p>
+<p><strong>What AI produced:</strong> Created app.py with two-page navigation 
+using st.sidebar, a complete submission form with all 9 fields, 
+and a dataframe view of all requests. Data is saved to 
+purchase_requests.json.</p>
+<p><strong>Did it work first try?</strong> Yes, app ran successfully on first try.</p>
+<hr />
+<h2>Interaction 2 — Fix Approval Status ownership</h2>
+<p><strong>Prompt:</strong> Update the app so that on the Submit Request page, 
+remove the Instructor Approval Status field. All new submissions 
+automatically get status "Pending". On the View All Requests page, 
+add a dropdown next to each request that lets Dorothy change the 
+approval status.</p>
+<p><strong>What AI produced:</strong> Removed the field from the student form, 
+set default status to "Pending", added editable dropdown on the 
+coordinator view.</p>
+<p><strong>Did it work first try?</strong> Yes.</p>
+<hr />
+<h2>Interaction 3 — Add Rejection Note and visual distinction</h2>
+<p><strong>Prompt:</strong> Add a Rejection Note text field next to the approval 
+status for each request. Make Dorothy's editable fields visually 
+distinct with a light blue background so she can clearly see 
+which fields she can edit.</p>
+<p><strong>What AI produced:</strong> Added a blue-background "Coordinator" panel 
+on the right side of each request with editable Approval Status 
+dropdown and Rejection Note text area, clearly separated from the 
+read-only student submission table on the left.</p>
+<p><strong>Did it work first try?</strong> Yes.</p>
+<hr />
+<h2>Interaction 4 — Style with Themes (Level 5)</h2>
+<p><strong>Prompt:</strong> Create a .streamlit/config.toml file with a 
+professional indigo theme, white background, and sans-serif font.</p>
+<p><strong>What AI produced:</strong> Created .streamlit/config.toml with custom 
+colors. Had to fix a NameError (border syntax error in app.py) 
+and a layout issue with the Price in USD field.</p>
+<p><strong>Did it work first try?</strong> No. Got a NameError on line 68 of 
+app.py. Fixed by pasting the error back to Cursor. Also had to 
+fix input field width display issue.</p>
+<hr />
+<h2>Interaction 5 — Manual Code Edit (Level 4)</h2>
+<p><strong>Prompt:</strong> No AI used. Manually edited the submission 
+instructions text in render_submit_page().</p>
+<p><strong>What I changed:</strong> Changed "Fill in the details below" to 
+"Please fill in all fields carefully" to make instructions 
+clearer for students.</p>
+<p><strong>Did it work?</strong> Yes, app ran successfully after the change.</p>
+<hr />
+<h2>Level 4: Code Understanding</h2>
+<p><strong>Function I studied:</strong> render_submit_page()</p>
+<p><strong>My understanding in my own words:</strong>
+The render_submit_page() function draws all the form inputs on 
+the page and waits for the user to click Submit. Only when 
+submitted is True does it save the data to the JSON file.</p>
+<hr />
+<h2>Accessibility Baseline Check</h2>
+<p><strong>Color Contrast:</strong> PASS
+- Text color: rgb(49, 51, 63)
+- Background color: rgb(255, 255, 255)
+- Contrast ratio exceeds 4.5:1 standard (WCAG AA)
+- Using Streamlit default theme, no custom colors needed</p>
+<p><strong>Semantic Headings:</strong> PASS
+- st.title() used once for main page title
+- st.header() used for major sections
+- st.subheader() used for subsections
+- Heading order is correct, no levels skipped</p>
+<hr />
+<h2>Reflection</h2>
+<p><strong>1. What surprised you about AI-assisted coding?</strong>
+I was surprised by how quickly Cursor completed the entire app. 
+It not only generated the code but directly created and edited 
+the files in my project folder, which felt very different from 
+just getting a text response from a chatbot.</p>
+<p><strong>2. What did the AI get wrong?</strong>
+Sometimes the visual layout was slightly off — for example, 
+input fields were not displaying at full width, and the initial 
+color theme looked unprofessional. Some features also didn't 
+match real user habits, like having the approval status on the 
+student form instead of the coordinator dashboard.</p>
+<p><strong>3. Could you explain your code?</strong>
+For most parts, yes. After studying render_submit_page(), I 
+understood how Streamlit draws form inputs and only saves data 
+when the Submit button is clicked. There are still some advanced 
+parts I would need more time to fully understand.</p>
+<p><strong>4. What did you learn from the interview?</strong>
+Understanding the user's needs is crucial — it directly shaped 
+what features to build and what to prioritize. Without talking 
+to Dorothy, I might have built a generic form that missed key 
+details like the instructor approval workflow and the volume 
+of requests she handles each month.</p>
+<h1>Component C: System Architecture &amp; Design</h1>
+<pre><code>+----------------------+    +----------------------+    +----------------------+
+|        INPUT         | -&gt; |       PROCESS        | -&gt; |       OUTPUT         |
++----------------------+    +----------------------+    +----------------------+
+| - Team Number        |    | - Python collects    |    | - Success message    |
+| - CFO Name           |    |   and validates data |    |   shown to student   |
+| - Supplier           |    | - Saved to JSON file |    | - Table of requests  |
+| - Quantity           |    | - Reads JSON on load |    |   shown to Dorothy   |
+| - Item Name          |    | - Overwrites JSON    |    | - Editable Approval  |
+| - Price in USD       |    |   when Dorothy edits |    |   Status &amp; Note      |
+| - Link to Purchase   |    |                      |    | - Toast notification |
+| - Notes              |    |                      |    |   when saved         |
+| - Submit button      |    |                      |    |                      |
+| - Dorothy: Approval  |    |                      |    |                      |
+| - Dorothy: Note      |    |                      |    |                      |
++----------------------+    +----------------------+    +----------------------+
+         ^                                                       |
+         +------ Feedback: Dorothy updates, student resubmits --+
+</code></pre>
+<h2>Design Decision Log</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Your Entry</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Decision</strong></td>
+<td>Put everything in one file (app.py)</td>
+</tr>
+<tr>
+<td><strong>Alternatives considered</strong></td>
+<td>Split into multiple files: data.py for JSON logic, ui.py for pages, main.py as entry point</td>
+</tr>
+<tr>
+<td><strong>Why you chose this</strong></td>
+<td>Cursor generated a single file by default. With ~385 lines it is still manageable for a first version</td>
+</tr>
+<tr>
+<td><strong>Trade-off</strong></td>
+<td>If 5 more features are added, the file could grow to 600+ lines and become very hard to navigate and debug</td>
+</tr>
+<tr>
+<td><strong>When would you choose differently?</strong></td>
+<td>If the app grows significantly or needs multiple people working on different parts at the same time</td>
+</tr>
+</tbody>
+</table>
+<h1>Component D: Testing &amp; Validation</h1>
+<h2>Smoke Test</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Feature Tested</th>
+<th>Action You Took</th>
+<th>Expected Result</th>
+<th>Actual Result</th>
+<th>Pass/Fail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Submit Request form</td>
+<td>Filled in all fields (Team Number, CFO Name, Supplier, Quantity, Item Name, Price, Link, Notes) and clicked Submit</td>
+<td>Success message appears and entry is saved</td>
+<td>Green success message appeared and entry showed up correctly in View All Requests</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>2</td>
+<td>View All Requests table</td>
+<td>Clicked "View All Requests" in sidebar navigation</td>
+<td>Table displays all submitted requests with all fields visible</td>
+<td>Table displayed correctly with all columns and data</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Coordinator Approval Status</td>
+<td>Changed approval status dropdown from Pending to Approved on Dorothy's coordinator panel</td>
+<td>Status updates and toast notification appears</td>
+<td>Status changed to Approved and toast notification "Coordinator updates saved" appeared at bottom of screen</td>
+<td>Pass</td>
+</tr>
+</tbody>
+</table>
+<h2>Quality Gate Checklist</h2>
+<ul>
+<li>[x] Smoke test table completed with 3 tested features</li>
+<li>[x] Any failed test is either fixed and re-tested, or clearly documented</li>
+<li>[x] Screenshot of the running app included</li>
+<li>[x] Accessibility baseline results recorded (color contrast + semantic headings)</li>
+</ul>
+<h2>Screenshots</h2>
+<p><img alt="Submit Request Form" src="screenshot-submit.png" />
+<img alt="Coordinator Dashboard" src="screenshot-coordinator.png" /></p>
+<h2>Accessibility Baseline Results</h2>
+<p><strong>Color Contrast:</strong> PASS
+- Text color: rgb(49, 51, 63)
+- Background color: rgb(255, 255, 255)
+- Contrast ratio exceeds 4.5:1 standard (WCAG AA)</p>
+<p><strong>Semantic Headings:</strong> PASS
+- st.title() used once for main page title
+- st.header() used for major sections
+- st.subheader() used for subsections
+- Heading order is correct, no levels skipped</p>
+<h1>Component E: Applied Challenge — The GIX Wayfinder</h1>
+<h2>Part 1: I/P/O Diagram</h2>
+<pre><code>+----------------------+    +----------------------+    +----------------------+
+|        INPUT         | -&gt; |       PROCESS        | -&gt; |       OUTPUT         |
++----------------------+    +----------------------+    +----------------------+
+| - User types keyword |    | - Filter RESOURCES   |    | - Resource cards     |
+|   in search bar      |    |   list by category   |    |   showing name,      |
+|                      |    | - Filter by search   |    |   category,          |
+| - User selects       |    |   keyword (checks    |    |   location, hours,   |
+|   category from      |    |   name and           |    |   description,       |
+|   sidebar dropdown   |    |   description)       |    |   free to use        |
+|   (All, Makerspace,  |    | - If no filters,     |    |                      |
+|   Study Space,       |    |   show all 8         |    | - Results count      |
+|   Printing,          |    |   resources          |    |   (&quot;X found&quot;)        |
+|   Storage, Food,     |    |                      |    |                      |
+|   Other)             |    |                      |    | - Warning message    |
+|                      |    |                      |    |   if no results      |
++----------------------+    +----------------------+    +----------------------+
+         ^                                                       |
+         +---- Feedback: User refines search or changes --------+
+                          category filter
+</code></pre>
+<h3>Data Source</h3>
+<p>RESOURCES = hardcoded list of 8 dictionaries in E-wayfinder.py </p>
+<h2>Part 2: Edge Case Validation</h2>
+<h3>Edge Case 1: Empty search bar</h3>
+<p><strong>What happens:</strong> When the search bar is empty and category 
+is "All", all 8 resources are shown.
+<strong>Why it matters:</strong> The app should not crash or show 0 results 
+when no search term is entered. This is the default state 
+every user sees when they first open the app.
+<strong>Result:</strong> Pass — all 8 resources display correctly with 
+empty search.</p>
+<h3>Edge Case 2: Search term with no matches</h3>
+<p><strong>What happens:</strong> When user types a keyword that matches 
+no resource (e.g. "swimming pool"), the app shows a warning 
+message instead of crashing.
+<strong>Why it matters:</strong> Users will inevitably search for things 
+that don't exist. The app must handle this gracefully instead 
+of showing a blank page with no explanation.
+<strong>Result:</strong> Pass — warning message "No resources match your 
+search" appears correctly.</p>
+<hr />
+<h2>Part 3: Assert Statement</h2>
+<p>Located in E-wayfinder.py at the top of the file:</p>
+<pre><code class="language-python">assert all(
+    REQUIRED_FIELDS.issubset(r.keys()) for r in RESOURCES
+), &quot;Some resources are missing required fields!&quot;
+</code></pre>
+<p>This checks that every resource in the list has all 6 required 
+fields (name, category, location, hours, description, free).</p>
+<hr />
+<h2>Part 4: Prompt Log</h2>
+<h3>Initial Prompt</h3>
+<p>"Create a new file called wayfinder.py. Build a Streamlit app 
+called GIX Campus Wayfinder that helps new GIX students find 
+campus resources. Include a data structure with 8 resources, 
+a search bar, category filter, resource cards, and an assert 
+statement for data integrity."</p>
+<h3>Refinement</h3>
+<p>"Add a search button next to the search bar so users can click 
+to search instead of only pressing Enter. The button should have 
+a search icon so users immediately know what it does."</p>
+<p><strong>What changed and why:</strong> The initial prompt generated a plain 
+text input where users could only search by pressing Enter — 
+this is not intuitive for all users. Adding a clickable 🔍 Search 
+button makes the interaction clearer and more user-friendly, 
+especially for users who are not familiar with pressing Enter 
+to submit a search.</p></body></html>
