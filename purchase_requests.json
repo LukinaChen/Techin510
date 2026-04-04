@@ -8,7 +8,7 @@
     "Price in USD": 20.0,
     "Link to Purchase": "xxx",
     "Notes": "",
-    "Instructor Approval Status": "Pending",
+    "Instructor Approval Status": "Approved",
     "Rejection Note": ""
   },
   {
@@ -20,8 +20,8 @@
     "Price in USD": 1.0,
     "Link to Purchase": "1",
     "Notes": "1",
-    "Instructor Approval Status": "Pending",
-    "Rejection Note": ""
+    "Instructor Approval Status": "Rejected",
+    "Rejection Note": "not right link"
   },
   {
     "Team Number": "3",
@@ -32,7 +32,7 @@
     "Price in USD": 1.0,
     "Link to Purchase": "d",
     "Notes": "",
-    "Instructor Approval Status": "Rejected",
+    "Instructor Approval Status": "Approved",
     "Rejection Note": ""
   },
   {
