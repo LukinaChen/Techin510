@@ -19,3 +19,16 @@
 
 ![Submit Request Form](screenshot-submit.png)
 ![Coordinator Dashboard](screenshot-coordinator.png)
+
+## Accessibility Baseline Results
+
+**Color Contrast:** PASS
+- Text color: rgb(49, 51, 63)
+- Background color: rgb(255, 255, 255)
+- Contrast ratio exceeds 4.5:1 standard (WCAG AA)
+
+**Semantic Headings:** PASS
+- st.title() used once for main page title
+- st.header() used for major sections
+- st.subheader() used for subsections
+- Heading order is correct, no levels skipped
