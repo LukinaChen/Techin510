@@ -33,4 +33,5 @@ to review and manage them.
 4. Run the app:
    python3 -m streamlit run app.py
 
-5. Open your browser at http://localhost:8501
+5. Open your browser at:
+   http://localhost:8501
