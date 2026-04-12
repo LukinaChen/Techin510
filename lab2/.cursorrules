@@ -1,0 +1,42 @@
+# Project: GIX Course Petition Tracker
+# Framework: Streamlit (Python)
+# Python version: 3.11+
+
+## Coding Standards
+- Use Python 3.11+ features and syntax
+- Use type hints for function parameters and return values
+- Add docstrings to all functions (Google style)
+- Use descriptive variable names (avoid single-letter names except for loop counters)
+- Keep functions under 30 lines; extract helper functions when needed
+
+## Streamlit Conventions
+- Use st.set_page_config() at the top of the main app file
+- Use st.tabs for navigation within a role, not st.sidebar
+- Use st.cache_data for expensive computations
+- Handle errors gracefully with try/except and display user-friendly messages with st.error() or st.warning()
+- Use st.session_state for managing login state and form state
+
+## Project Structure
+- app.py: Main Streamlit application (login, student, advisor, instructor views)
+- uploads/: Directory for uploaded PDF files (transcript, syllabus)
+- petitions.json: Data storage for petition records
+- .streamlit/config.toml: Streamlit theme configuration
+
+## Visualization
+- Prefer Plotly for interactive charts
+- Use a consistent color palette: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd"]
+- Always include chart titles, axis labels, and legends
+
+## Business Logic
+- Three roles: student, advisor, instructor
+- Approval flow: Student submits → Advisor reviews → Instructor makes final decision
+- Either advisor or instructor can reject; both must approve for final approval
+- Student sees "Advisor Approved" as "Under Review" (hide internal flow)
+- Status colors: gray (Submitted), blue (Advisor Approved), green (Approved), red (Rejected)
+- Card background: white (unread), light yellow (viewed), light gray (decided)
+
+## UI Conventions
+- Bold all form field labels via CSS injection
+- Rounded buttons (border-radius: 10px)
+- Primary buttons use black background with white text
+- Use st.divider() between sections for visual separation
